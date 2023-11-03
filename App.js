@@ -6,38 +6,22 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
+import AppStack from './src/routes/index'
 
 
 
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
 
 
   return (
-    <SafeAreaView style={{}}>
-      <StatusBar
-        barStyle={'light-content'}
-      />
-      <ScrollView>
-     
-      </ScrollView>
-    </SafeAreaView>
+<NavigationContainer>
+  <AppStack />
+</NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
- 
-});
 
-export default App;
+
+export default App;
