@@ -1,4 +1,4 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
+/* import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 import Profile from '../screens/Profile/Profile';
 import Home from '../screens/Home';
@@ -21,3 +21,4 @@ export default function DrawerComponent() { // Rename the component function to 
     </MyDrawer.Navigator>
   );
 }
+ */
