@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../screens/Auth/Login'
 import { Tabs } from './Tabs';
+import CustomDrawer from '../components/Drawer';
+
 
 
 const Stack = createStackNavigator();

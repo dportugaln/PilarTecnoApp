@@ -12,8 +12,7 @@ StatusBar,
 import { Header as HeaderRNE, HeaderProps, Icon } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
 import PopMenu from './PopMenu';
-import myDrawer from './Drawer';
-
+import CustomDrawer from './Drawer'; // Import the CustomDrawer component
 
 
 
@@ -21,16 +20,20 @@ import myDrawer from './Drawer';
 const Header = (props) => {
     const {title='Pilar Tecno', leftComponent, rightComponent } = props
     const navigation = useNavigation();
+
+    const openDrawer = () => {
+      navigation.openDrawer();
+    };
     
     
 
   return (
     <HeaderRNE 
-      leftComponent={leftComponent?leftComponent:(
-        {
-        icon: 'menu',
-        color: '#fff',
-      })}
+    leftComponent={leftComponent ? leftComponent : { // Add a button to open the drawer
+      icon: 'menu',
+      color: '#fff',
+      onPress: openDrawer, // Call the openDrawer function
+    }}
       rightComponent={rightComponent? rightComponent:(
         <PopMenu/>
       ) 

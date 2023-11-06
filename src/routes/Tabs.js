@@ -6,12 +6,13 @@ import { MapStackScreen } from './MapStack'
 import { ListsStackScreen } from './ListsStack'
 import { Icon } from 'react-native-elements'
 
+
 const Tab = createMaterialBottomTabNavigator();
 
 export const Tabs = () => {
     return (
         <Tab.Navigator
-            activeColor={'black'}// //'rgb(41,34,97)',
+            activeColor={'black'}
             inactiveColor={'white'}
             barStyle={{
                 backgroundColor: '#1782E0'

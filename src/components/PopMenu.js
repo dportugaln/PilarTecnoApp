@@ -1,42 +1,66 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   Modal,
-  SafeAreaView,
   Pressable,
+  Animated,
 } from 'react-native';
-import {Icon} from '@rneui/themed';
-import {useNavigation} from '@react-navigation/native';
+import { Icon } from '@rneui/themed';
+import { useNavigation } from '@react-navigation/native';
 
-const Popmenu = () => {
-  const [modalVisible, setModalVisible] = React.useState(false);
+const PopMenu = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
+  const translateY = useRef(new Animated.Value(-100)).current;
+
+  const showMenu = () => {
+    setModalVisible(true);
+    Animated.spring(translateY, {
+      toValue: 0,
+      useNativeDriver: false,
+    }).start();
+  };
+
+  const hideMenu = () => {
+    Animated.timing(translateY, {
+      toValue: -100,
+      duration: 300,
+      useNativeDriver: false,
+    }).start(() => setModalVisible(false));
+  };
+
   return (
-
-    <View style={{width: 25, height: 25, marginTop: 5}}>
-
-      {modalVisible && (
-        <Pressable onPress={(event) => event.target == event.currentTarget && setModalVisible(false)}>
-          <View style={styles.popUpMenu}>
+    <View style={{ width: 25, height: 25, marginTop: 5 }}>
+      <Modal
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => hideMenu()}
+      >
+        <Pressable onPress={() => hideMenu()}>
+          <Animated.View
+            style={[
+              styles.popUpMenu,
+              {
+                transform: [{ translateY }],
+              },
+            ]}
+          >
             <TouchableOpacity
               onPress={() => {
+                hideMenu();
                 navigation.navigate('Profile');
-              }}>
-              <Text style={styles.popUpMenuText}>Perfil</Text>
+              }}
+            >
+              <Text style={styles.popUpMenuText}>Profile</Text>
             </TouchableOpacity>
-          </View>
+          </Animated.View>
         </Pressable>
-      )}
-      <TouchableOpacity>
-        <Icon
-          onPress={() => setModalVisible(prev => !prev)}
-          name="user"
-          type="font-awesome"
-          color="white"
-        />
+      </Modal>
+      <TouchableOpacity onPress={showMenu}>
+        <Icon name="user" type="font-awesome" color="white" />
       </TouchableOpacity>
     </View>
   );
@@ -45,16 +69,19 @@ const Popmenu = () => {
 const styles = StyleSheet.create({
   popUpMenu: {
     position: 'absolute',
-    backgroundColor: 'white',
+    backgroundColor: 'grey',
     width: 100,
     top: 35,
     right: 5,
     elevation: 10,
+    borderRadius: 3,
   },
   popUpMenuText: {
     color: 'white',
+    textAlign: 'center',
+    justifyContent: 'center',
     fontSize: 20,
   },
 });
 
-export default Popmenu;
+export default PopMenu;
