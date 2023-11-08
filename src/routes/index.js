@@ -15,7 +15,7 @@ export default AppStack = (props) => {
         <Stack.Navigator screenOptions={{headerShown:false}}>
             {
                 true? (
-                    <Stack.Screen name="AppStack" component={Tabs} />
+                    <Stack.Screen name="Appstack" component={Tabs} />
                 ) : (
                     <Stack.Screen name="LogIn" component={Login} />
                 )}

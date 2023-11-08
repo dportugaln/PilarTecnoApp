@@ -9,8 +9,8 @@ const ListsStack = createStackNavigator();
 export const ListsStackScreen = () => {
     return (
         <ListsStack.Navigator screenOptions={{headerShown:false}}>
-            <ListsStack.Screen name="Lists" component={Lists} />
-            <ListsStack.Screen name="ListDetail" component={ListDetail} />
+            <ListsStack.Screen name="ListsStack" component={Lists} />
+            <ListsStack.Screen name="ListDetailStack" component={ListDetail} />
 
         </ListsStack.Navigator>
     )

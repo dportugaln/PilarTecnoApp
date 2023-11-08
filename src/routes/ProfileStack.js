@@ -8,7 +8,7 @@ const ProfileStack = createStackNavigator();
 export const ProfileStackScreen = () => {
     return (
         <ProfileStack.Navigator screenOptions={{headerShown:false}}>
-            <ProfileStack.Screen name="Profile" component={Profile} />
+            <ProfileStack.Screen name="ProfileStack" component={Profile} />
 
         </ProfileStack.Navigator>
     )
