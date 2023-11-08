@@ -1,8 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { HomeStackScreen } from '../routes/HomeStack';
+import { ProfileStackScreen } from '../routes/ProfileStack';
+import { ListsStackScreen } from '../routes/ListsStack';
+import { MapStackScreen } from '../routes/MapStack';
 
 const Drawer = createDrawerNavigator();
+
 
 const CustomDrawerContent = (props) => {
   return (

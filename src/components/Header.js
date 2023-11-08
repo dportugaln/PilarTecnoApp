@@ -12,28 +12,36 @@ StatusBar,
 import { Header as HeaderRNE, HeaderProps, Icon } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
 import PopMenu from './PopMenu';
-import CustomDrawer from './Drawer'; // Import the CustomDrawer component
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { HomeStackScreen } from '../routes/HomeStack';
+import { ProfileStackScreen } from '../routes/ProfileStack';
+import { ListsStackScreen } from '../routes/ListsStack';
+import { MapStackScreen } from '../routes/MapStack';
+
+const Drawer = createDrawerNavigator();
 
 
-
+const CustomDrawerContent = (props) => {
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+    </DrawerContentScrollView>
+  );
+}
 
 const Header = (props) => {
     const {title='Pilar Tecno', leftComponent, rightComponent } = props
     const navigation = useNavigation();
 
-    const openDrawer = () => {
-      navigation.openDrawer();
-    };
-    
-    
+
 
   return (
     <HeaderRNE 
-    leftComponent={leftComponent ? leftComponent : { // Add a button to open the drawer
-      icon: 'menu',
-      color: '#fff',
-      onPress: openDrawer, // Call the openDrawer function
-    }}
+    leftComponent={
+        <TouchableOpacity onPress={openDrawer}>
+          <Icon name="menu" color="#fff" />
+        </TouchableOpacity>
+      }
       rightComponent={rightComponent? rightComponent:(
         <PopMenu/>
       ) 
