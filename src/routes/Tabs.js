@@ -9,7 +9,7 @@ import { Icon } from 'react-native-elements'
 
 const Tab = createMaterialBottomTabNavigator();
 
-export const Tabs = () => {
+const Tabs = () => {
     return (
         <Tab.Navigator
             activeColor={'black'}
@@ -47,4 +47,6 @@ export const Tabs = () => {
             />
         </Tab.Navigator>
     );
-}
+};
+
+export default Tabs;

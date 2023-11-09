@@ -35,21 +35,22 @@ const Header = (props) => {
 
 
 
-  return (
-    <HeaderRNE 
-    leftComponent={
-        <TouchableOpacity onPress={openDrawer}>
-          <Icon name="menu" color="#fff" />
-        </TouchableOpacity>
+    return (
+      <HeaderRNE
+      leftComponent={
+        leftComponent
+          ? leftComponent
+          : { onPress: () => navigation.openDrawer(),
+              icon: 'menu',
+              color: '#fff',
+              marginTop: 5,
+            }
       }
-      rightComponent={rightComponent? rightComponent:(
-        <PopMenu/>
-      ) 
-      }
-      centerComponent={{ text: title, style: styles.heading }}
-    />
-  );
-}
+        rightComponent={rightComponent ? rightComponent : <PopMenu />}
+        centerComponent={{ text: title, style: styles.heading }}
+      />
+    );
+  };
 
 const styles = StyleSheet.create({
     headerContainer: {
