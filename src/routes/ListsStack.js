@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Lists from '../screens/Lists/Lists'
-import ListDetail from '../screens/Lists/listDetail'
+import ListDetail from '../screens/Lists/ListDetail'
 
 import { createStackNavigator } from '@react-navigation/stack';
 
