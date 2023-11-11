@@ -1,34 +1,24 @@
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { HomeStackScreen } from '../routes/HomeStack';
-import { ProfileStackScreen } from '../routes/ProfileStack';
-import { ListsStackScreen } from '../routes/ListsStack';
-import { MapStackScreen } from '../routes/MapStack';
-import PopMenu from './PopMenu';
-import Header from './Header';
-import AppStack from '../routes';
+import Profile from '../screens/Profile/Profile';
+import AppStack from '../routes/index';
+import List from '../screens/Lists/Lists';
+import Maps from '../screens/Map/Maps';
+import ListDetail from '../screens/Lists/listDetail';
 
 const Drawer = createDrawerNavigator();
 
-
-const CustomDrawerContent = (props) => {
-  return (
-    <DrawerContentScrollView {...props}>
-      <Header title="Pilar Tecno" />
-      <DrawerItemList {...props} />
-    </DrawerContentScrollView>
-  );
-}
-
 const CustomDrawer = () => {
+ 
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Home"component={HomeStackScreen} />
-      <Drawer.Screen name="Profile" component={ProfileStackScreen} />
-      <Drawer.Screen name="Lists" component={ListsStackScreen} />
-      <Drawer.Screen name="Map" component={MapStackScreen} />
+
+    <Drawer.Navigator >
+      <Drawer.Screen name="Home" component={AppStack} options={{ headerShown: false }}/>
+      <Drawer.Screen name="Profile" component={Profile}  options={{ headerShown: false }}/>
+      <Drawer.Screen name="List" component={List} options={{ headerShown: false }}/>
+      <Drawer.Screen name="Maps" component={Maps} options={{ headerShown: false }}/>
     </Drawer.Navigator>
+
   );
 }
 

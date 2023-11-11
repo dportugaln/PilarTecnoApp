@@ -11,6 +11,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 const Tabs = () => {
     return (
+    
         <Tab.Navigator
             activeColor={'black'}
             inactiveColor={'white'}
@@ -46,6 +47,7 @@ const Tabs = () => {
             }}
             />
         </Tab.Navigator>
+        
     );
 };
 

@@ -2,10 +2,8 @@
 
 import React from 'react';
 import {
-    ActivityIndicator,
     SafeAreaView,
     Dimensions,
-    TouchableHighlight,
     StyleSheet,
     TouchableOpacity,
     Text,
@@ -36,9 +34,10 @@ const Home = (props) => {
     }
 
 
+
+
     return (
         <SafeAreaView style={styles.container}>
-
             <Header />
             <View style={{ ...styles.gridContainer }}>
                 <View style={{ ...styles.gridRow, flexDirection: 'row' }}>
@@ -82,7 +81,6 @@ const Home = (props) => {
 
 
 
-
         </SafeAreaView>
     );
 }
@@ -95,6 +93,8 @@ const styles = StyleSheet.create({
         width: WIDTH,
         height: HEIGHT,
     },
+
+      
     gridColumn: {
         flex: 1,
         alignItems: 'center',

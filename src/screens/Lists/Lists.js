@@ -31,14 +31,7 @@ const Lists = (props) => {
       
       return (
         <SafeAreaView style={styles.container}>
-           <Header leftComponent ={(
-            <View>
-              <TouchableOpacity style={{marginTop:5}} onPress={()=>props.navigation.goBack()}>
-              <Icon  type='font-awesome-5' name="arrow-left" color={"white"}/>
-              </TouchableOpacity>
-            </View>
-    
-          )} />
+           <Header />
           <View style={{...styles.gridContainer}}>
           <View style={{...styles.gridRow, flexDirection: 'Column'}}>
             <Text style={{...styles.detailText}}>
